@@ -8,6 +8,8 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 
+import { Toaster } from 'sonner';
+
 const queryClient = new QueryClient()
 
 import { ToastContainer } from 'react-toastify';
@@ -29,6 +31,13 @@ createRoot(document.getElementById('root')!).render(
           draggable
           pauseOnHover
           theme="dark" // o 'dark' o 'colored'
+        />
+        <Toaster 
+            theme="dark"
+            richColors 
+            closeButton
+            position="top-center"  
+            expand={false}      
         />
        </QueryClientProvider>
     </ThemeProvider>
