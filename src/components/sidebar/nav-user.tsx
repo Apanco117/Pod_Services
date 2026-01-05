@@ -30,6 +30,8 @@ import type { User } from "@/types"
 import { LogOut } from "lucide-react"
 import { useNavigate } from "react-router-dom"
 import { useQueryClient } from "@tanstack/react-query"
+import { toast } from "sonner"
+
 
 type NavUSerType = {
     user : User
@@ -45,6 +47,7 @@ export default function NavUser({ user }: NavUSerType) {
     const handleLogout = () => {
         localStorage.removeItem('AUTH_TOKEN');
         queryClient.clear();
+        toast.success('Sesión cerrada correctamente');
         navigate('/auth/login');
     }
 
