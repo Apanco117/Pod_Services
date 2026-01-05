@@ -9,8 +9,14 @@ import {
 import TeamSwitcher from "./team-switcher"
 import NavMain from "./nav-main"
 import { data } from "./Data"
+import NavUser from "./nav-user"
+import type { User } from "@/types"
 
-export default function AppSidebar( { ...props }: React.ComponentProps<typeof Sidebar> ) {
+interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
+    user: User; 
+}
+
+export default function AppSidebar( { user, ...props }: AppSidebarProps ) {
     return (
         <Sidebar collapsible="icon" {...props}>
             <SidebarHeader>
@@ -21,7 +27,7 @@ export default function AppSidebar( { ...props }: React.ComponentProps<typeof Si
                 {/* <NavProjects projects={data.projects} /> */}
             </SidebarContent>
             <SidebarFooter>
-                {/* <NavUser user={data.user} /> */}
+                <NavUser user={user} />
             </SidebarFooter>
             <SidebarRail />
         </Sidebar>

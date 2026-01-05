@@ -10,15 +10,16 @@ import { useQuery } from "@tanstack/react-query";
 import type { User } from "@/types";
 import { getCurrentUser } from "@/api/ReqAuth";
 import GenericLoadingSkeleton from "@/components/GenericLoadingSkeleton";
+import SidebarPageLoading from "@/components/SidebarPageLoading";
 
 
 
 export default function PrincipalLayout() {
 
-    const { isLoading, isError} = useQuery<User>({
+    const { data, isLoading, isError} = useQuery<User>({
         queryKey: ['currentUser'],
         queryFn: getCurrentUser,
-        retry: false, // Recomendado: Si falla la auth (401), no reintentar 3 veces
+        retry: false,
         refetchOnWindowFocus: false
     })
 
@@ -26,11 +27,12 @@ export default function PrincipalLayout() {
         return <Navigate to="/auth/login" replace />;
     }
 
-
-
+    if ( isLoading ) return (
+        <SidebarPageLoading/>
+    )
     return (
          <SidebarProvider defaultOpen={false} >
-            <AppSidebar />
+            <AppSidebar user={data!} />
             <SidebarInset>
                 <header className="fixed w-full z-50 h-16 shrink-0 flex items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 border-b-2 bg-background">
                     <div className=" px-2">
