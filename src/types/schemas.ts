@@ -25,11 +25,13 @@ export const UserSchema = z.object({
     _id: z.string(),
     nombre: z.string(),
     email: z.string(),
-    role: z.enum(["ADMIN", "USER"]),
+    role: z.string(),
     activo: z.boolean(),
     confirmado: z.boolean(),
     createdAt: z.string(),
     updatedAt: z.string()
 });
+
+export const UsersSchema = z.array(UserSchema)
 
 export const PortfolioResponseSchema = z.array(PortfolioItemSchema);
