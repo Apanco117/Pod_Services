@@ -54,14 +54,14 @@ export const UsersColumn: ColumnDef<User>[] = [
     {
         accessorKey: "role",
         header: ({ }) => (
-            <div className="hidden md:block">Rol</div>
+            <div className="hidden sm:block">Rol</div>
         ),
         cell: ({ row }) => {
             const role = row.getValue("role") as string
             const isAdmin = role === "ADMIN"
 
             return (
-                <div className="hidden md:flex items-center">
+                <div className="hidden sm:flex items-center">
                     {isAdmin ? (
                         <Badge variant="secondary" className="text-slate-500 bg-primary/10 dark:bg-primary/20 dark:text-primary">
                             Admin
