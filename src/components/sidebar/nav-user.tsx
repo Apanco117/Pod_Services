@@ -38,13 +38,18 @@ type NavUSerType = {
 }
 
 export default function NavUser({ user }: NavUSerType) {
-    const { isMobile } = useSidebar()
     const initial = user.nombre.charAt(0).toUpperCase() + user.nombre.charAt(1).toUpperCase();
 
     const navigate = useNavigate();
     const queryClient = useQueryClient();
 
-    const handleLogout = () => {
+    const { setOpenMobile, isMobile } = useSidebar();
+
+    const handleLogout = async () => {
+        if (isMobile) {
+            setOpenMobile(false);
+        }
+        await new Promise(resolve => setTimeout(resolve, 100));
         localStorage.removeItem('AUTH_TOKEN');
         queryClient.clear();
         toast.success('Sesión cerrada correctamente');
