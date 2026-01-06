@@ -1,4 +1,4 @@
-import { LayoutDashboard, Settings2, User } from "lucide-react";
+import { ChartBar, LayoutDashboard, Settings2, User } from "lucide-react";
 
 export const getNavData = (userRole: string) => {
     console.log("User Role:", userRole);
@@ -17,6 +17,18 @@ export const getNavData = (userRole: string) => {
                 {
                     title: "Transacciones",
                     url: "/transacciones",
+                }
+            ],
+        },
+        {
+            title: "Market",
+            url: "/market",
+            icon: ChartBar,
+            isActive: true,
+            items: [
+                {
+                    title: "Market Tranding",
+                    url: "/market/tranding",
                 }
             ],
         },

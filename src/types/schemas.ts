@@ -32,6 +32,16 @@ export const UserSchema = z.object({
     updatedAt: z.string()
 });
 
+export const MarketItemSchema = z.object({
+    ticker: z.string().min(1, "El ticker es obligatorio"),
+    nombre: z.string(),
+    precio: z.number(),
+    variacion: z.number(),
+    tipo: z.enum(["TRENDING", "MOST_ACTIVE", "TOP_GAINER", "TOP_LOSER"]).or(z.string()),
+    moneda: z.string().length(3).default("USD")
+});
+export const MarketResponseSchema = z.array(MarketItemSchema);
+
 export const UsersSchema = z.array(UserSchema)
 
 export const PortfolioResponseSchema = z.array(PortfolioItemSchema);
