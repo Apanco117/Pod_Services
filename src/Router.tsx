@@ -6,23 +6,25 @@ import LoginView from "./views/LoginView"
 import RegisterView from "./views/RegisterView"
 import ConfirmAccountView from "./views/ConfirmAccountView"
 import AdminUsersView from "./views/AdminUsersView"
-
+import { AxiosInterceptor } from "./components/AxiosInterceptor"
 
 export default function Router() {
     return (
         <BrowserRouter>
-            <Routes>
-                <Route element={<AuthLayout/>}>
-                    <Route path="/auth/login" element={<LoginView/>} />
-                    <Route path="/auth/register" element={<RegisterView/>} />
-                    <Route path="/auth/confirm-account" element={<ConfirmAccountView/>} />
-                </Route>
-                <Route path="/" element={<Navigate to="/dashboard" replace />} />
-                <Route element={<PrincipalLayout/>}>
-                    <Route path="/dashboard" element={<DashboardView/>} />
-                    <Route path="/admin/users" element={<AdminUsersView/>} />
-                </Route>
-            </Routes>
+            <AxiosInterceptor>
+                <Routes>
+                    <Route element={<AuthLayout/>}>
+                        <Route path="/auth/login" element={<LoginView/>} />
+                        <Route path="/auth/register" element={<RegisterView/>} />
+                        <Route path="/auth/confirm-account" element={<ConfirmAccountView/>} />
+                    </Route>
+                    <Route path="/" element={<Navigate to="/dashboard" replace />} />
+                    <Route element={<PrincipalLayout/>}>
+                        <Route path="/dashboard" element={<DashboardView/>} />
+                        <Route path="/admin/users" element={<AdminUsersView/>} />
+                    </Route>
+                </Routes>
+            </AxiosInterceptor>
         </BrowserRouter>
     )
 }
