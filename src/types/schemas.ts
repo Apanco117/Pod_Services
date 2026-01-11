@@ -54,7 +54,40 @@ export const AdminStockItemSchema = z.object({
     updatedAt: z.string().datetime(),
     lastCandleDate: z.string().datetime().nullable().optional() 
 });
+
 export const AdminStockResponseSchema = z.array(AdminStockItemSchema);
+
+export const StockChangeSchema = z.object({
+    amount: z.number(),
+    percentage: z.number(),
+    direction: z.enum(['up', 'down']).or(z.string()) 
+});
+
+export const StockRangeValuesSchema = z.object({
+    low: z.number(),
+    high: z.number(),
+    current: z.number()
+});
+
+export const StockStatisticsSchema = z.object({
+    volume: z.number().optional().nullable(),
+    marketCap: z.number().optional().nullable(),
+    previousClose: z.number()
+});
+
+export const StockDetailSchema = z.object({
+    symbol: z.string(),
+    name: z.string(),
+    price: z.number(),
+    currency: z.string(),
+    lastUpdate: z.string().datetime(),
+    change: StockChangeSchema,
+    ranges: z.object({
+        day: StockRangeValuesSchema,
+        year: StockRangeValuesSchema
+    }),
+    statistics: StockStatisticsSchema
+});
 
 
 export const UsersSchema = z.array(UserSchema)

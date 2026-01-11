@@ -1,6 +1,7 @@
 import { ArrowUpRight, ArrowDownRight, Flame, Activity, Trophy, TrendingDown } from "lucide-react";
 import { cn } from "@/lib/utils"; 
 import type { MarketItem } from "@/types"; 
+import { useNavigate } from "react-router-dom";
 
 interface MarketItemCardProps {
     item: MarketItem;
@@ -9,7 +10,7 @@ interface MarketItemCardProps {
 
 export function MarketItemCard({ item, className }: MarketItemCardProps) {
     const isPositive = item.variacion >= 0;
-    
+    const navigate = useNavigate();
     const formatCurrency = (value: number) => {
         // Intl.NumberFormat ya pone el símbolo ($), pero no el código (USD) por defecto
         return new Intl.NumberFormat("en-US", {
@@ -33,12 +34,17 @@ export function MarketItemCard({ item, className }: MarketItemCardProps) {
         }
     };
 
+    const handleClick = () => {
+        navigate(`/stock/${item.ticker}`)
+    }
+
     return (
         <div
             className={cn(
                 "group flex items-center justify-between p-3 rounded-lg border border-transparent bg-background hover:bg-muted/50 hover:border-border transition-all cursor-pointer",
                 className
             )}
+            onClick={handleClick}
         >
             {/* IZQUIERDA: Icono + Ticker + Nombre */}
             <div className="flex items-center gap-3">

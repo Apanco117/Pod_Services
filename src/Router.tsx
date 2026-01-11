@@ -9,6 +9,7 @@ import AdminUsersView from "./views/AdminUsersView"
 import { AxiosInterceptor } from "./components/AxiosInterceptor"
 import MarketTranding from "./views/MarketTrandingView"
 import AdminStocksView from "./views/AdminStocksView"
+import StockView from "./views/StockView"
 
 export default function Router() {
     return (
@@ -26,6 +27,7 @@ export default function Router() {
                         <Route path="/admin/users" element={<AdminUsersView/>} />
                         <Route path="/admin/stocks" element={<AdminStocksView/>} />
                         <Route path="/market/tranding" element={<MarketTranding/>} />
+                        <Route path="/stock/:ticker" element ={<StockView/>}/>
                     </Route>
                 </Routes>
             </AxiosInterceptor>
