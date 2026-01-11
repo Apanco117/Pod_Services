@@ -42,6 +42,21 @@ export const MarketItemSchema = z.object({
 });
 export const MarketResponseSchema = z.array(MarketItemSchema);
 
+//. Stocks
+export const AdminStockItemSchema = z.object({
+    _id: z.string(),
+    ticker: z.string(),
+    name: z.string(),
+    currency: z.string().length(3), 
+    lastPrice: z.number(),
+    isSystemTracked: z.boolean(),
+    totalDataPoints: z.number().int().nonnegative(),
+    updatedAt: z.string().datetime(),
+    lastCandleDate: z.string().datetime().nullable().optional() 
+});
+export const AdminStockResponseSchema = z.array(AdminStockItemSchema);
+
+
 export const UsersSchema = z.array(UserSchema)
 
 export const PortfolioResponseSchema = z.array(PortfolioItemSchema);
