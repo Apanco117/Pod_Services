@@ -15,3 +15,19 @@ export const formatCompact = (val: number | undefined | null) => {
         maximumFractionDigits: 2,
     }).format(val);
 };
+
+export const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString("es-MX", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+    })
+}
+
+export const formatTime = (dateString: string) => {
+    return new Date(dateString).toLocaleTimeString("es-MX", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true
+    });
+};

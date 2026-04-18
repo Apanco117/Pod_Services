@@ -89,6 +89,24 @@ export const StockDetailSchema = z.object({
 });
 
 
+//. Monitor de eventos
+export const LogConexionItemSchema = z.object({
+    _id: z.string(),
+    socketId: z.string(),
+    evento: z.enum(["CONECTADO", "DESCONECTADO", "ERROR", "TIMEOUT"]), 
+    ip: z.string(),
+    mensaje: z.string(),
+    fecha: z.string(), 
+    __v: z.number()
+});
+
+export const LogConexionResponseSchema = z.object({
+    success: z.boolean(),
+    total: z.number(),
+    data: z.array(LogConexionItemSchema)
+});
+
+
 export const UsersSchema = z.array(UserSchema)
 
 export const PortfolioResponseSchema = z.array(PortfolioItemSchema);

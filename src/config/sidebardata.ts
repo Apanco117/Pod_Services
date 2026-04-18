@@ -13,22 +13,18 @@ export const getNavData = (userRole: string) => {
                 {
                     title: "Dashboard",
                     url: "/dashboard",
-                },
-                {
-                    title: "Transacciones",
-                    url: "/transacciones",
                 }
             ],
         },
         {
-            title: "Market",
-            url: "/market",
+            title: "Monitor",
+            url: "/monitor",
             icon: ChartBar,
             isActive: true,
             items: [
                 {
-                    title: "Market Tranding",
-                    url: "/market/tranding",
+                    title: "Eventos de conexion",
+                    url: "/monitor/events",
                 }
             ],
         },

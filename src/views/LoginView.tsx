@@ -77,12 +77,6 @@ export default function LoginView() {
                     <TerminalSquare size={200} strokeWidth={2.5} className=" size-24"/>
                 </div>
                 <h1 className="text-xl font-bold">Bienvenido a Pod Terminal</h1>
-                <FieldDescription className=" text-sm flex items-center space-x-2">
-                    <p>¿No tienes una cuenta?</p>
-                    <Button className=" p-0 cursor-pointer" variant={"link"} onClick={ () => navigate("/auth/register") }>
-                        Crea una
-                    </Button>
-                </FieldDescription>
             </div>
             <form id="form-rhf-input" onSubmit={form.handleSubmit(onSubmit)}  >
                 <FieldGroup>
