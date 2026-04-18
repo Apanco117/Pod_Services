@@ -74,7 +74,14 @@ export default function MonitorEvents() {
 
                             <Field className="w-full max-w-48">
                                 <FieldLabel>Filtrar por Estado</FieldLabel>
-                                <Select value={filters.event} onValueChange={(value) => setFilters({...filters, event: value})} name="event">
+                                <Select 
+                                    value={filters.event === "" ? "TODOS" : filters.event}
+                                    onValueChange={(value) => setFilters({
+                                        ...filters, 
+                                        event: value === "TODOS" ? "" : value
+                                    })} 
+                                    name="event"
+                                >
                                     <SelectTrigger aria-invalid>
                                         <SelectValue placeholder="Seleccione un evento" />
                                     </SelectTrigger>
