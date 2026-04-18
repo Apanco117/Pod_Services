@@ -70,9 +70,9 @@ export default function MonitorEvents() {
 
                 <div>
                     <div className=" flex flex-col justify-center">
-                        <div className="flex flex-wrap gap-4 mb-6 bg-principal p-4 rounded-lg">
+                        <div className="flex flex-col flex-wrap md:flex-row gap-4 mb-6 bg-principal p-4 rounded-lg">
 
-                            <Field className="w-full max-w-48">
+                            <Field className="w-full md:max-w-48">
                                 <FieldLabel>Filtrar por Estado</FieldLabel>
                                 <Select 
                                     value={filters.event === "" ? "TODOS" : filters.event}
@@ -97,7 +97,7 @@ export default function MonitorEvents() {
                                 </Select>
                             </Field>
 
-                            <Field className="w-full max-w-48">
+                            <Field className="w-full md:max-w-48">
                                 <FieldLabel>Filtrar por Fecha</FieldLabel>
                                 <Popover>
                                     <PopoverTrigger asChild>
@@ -122,7 +122,7 @@ export default function MonitorEvents() {
                                 </Popover>
                             </Field>
 
-                            <Field className="w-full max-w-48">
+                            <Field className="w-full md:max-w-48">
                                 <FieldLabel>Filtrar por IP</FieldLabel>
                                 <Input 
                                     id="ip"     
@@ -134,13 +134,15 @@ export default function MonitorEvents() {
                                 />
                             </Field>
 
-                            <Field className="w-full max-w-48">
+                            <Field className="w-full md:max-w-48">
                                 <FieldLabel>Limpiar filtros</FieldLabel>
-                                <Button variant="outline" onClick={() => {
-                                    setFilters({
-                                        date: "",
-                                        event: "",
-                                        ip: ""
+                                <Button variant="outline"
+                                    className="border-primary"
+                                    onClick={() => {
+                                        setFilters({
+                                            date: "",
+                                            event: "",
+                                            ip: ""
                                     });
                                     setDate(new Date());
                                     setLocalIp("");
