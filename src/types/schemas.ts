@@ -107,6 +107,19 @@ export const LogConexionResponseSchema = z.object({
 });
 
 
+export const LiveConnectionItemSchema = z.object({
+    socketId: z.string(),
+    ipLocal: z.string(),
+    ipPublica: z.string(),
+    conectadoDesde: z.string() 
+});
+
+export const LiveConnectionResponseSchema = z.object({
+    success: z.boolean(),
+    totalActivas: z.number(),
+    data: z.array(LiveConnectionItemSchema)
+});
+
 export const UsersSchema = z.array(UserSchema)
 
 export const PortfolioResponseSchema = z.array(PortfolioItemSchema);

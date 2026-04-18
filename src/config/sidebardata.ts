@@ -25,6 +25,10 @@ export const getNavData = (userRole: string) => {
                 {
                     title: "Eventos de conexion",
                     url: "/monitor/events",
+                },
+                {
+                    title: "Conexiones activas",
+                    url: "/monitor/live",
                 }
             ],
         },

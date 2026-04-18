@@ -20,13 +20,15 @@ import { Skeleton } from "../ui/skeleton"
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[]
   data: TData[]
-  isLoading?: boolean
+  isLoading?: boolean,
+  messageEmpty?: string
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
-  isLoading = false
+  isLoading = false,
+  messageEmpty = "Sin resultados"
 }: DataTableProps<TData, TValue>) {
   const table = useReactTable({
     data,
@@ -82,7 +84,7 @@ export function DataTable<TData, TValue>({
           ) : (
             <TableRow>
               <TableCell colSpan={columns.length} className="h-24 text-center">
-                Sin resultados
+                {messageEmpty}
               </TableCell>
             </TableRow>
           )}
