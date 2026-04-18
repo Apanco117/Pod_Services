@@ -120,6 +120,49 @@ export const LiveConnectionResponseSchema = z.object({
     data: z.array(LiveConnectionItemSchema)
 });
 
+export const EquipoItemSchema = z.object({
+    _id: z.string(),
+    ipv4: z.string(),
+    ipvpn: z.string().optional(), 
+    propietario: z.string(),
+    activo: z.boolean(),
+    createdAt: z.string().datetime(), 
+    updatedAt: z.string().datetime(),
+    __v: z.number()
+});
+
+export const EquiposResponseSchema = z.object({
+    success: z.boolean(),
+    data: z.array(EquipoItemSchema)
+});
+
+export const EquipoResponseSchema = z.object({
+    success: z.boolean(),
+    data: EquipoItemSchema
+})
+
+export const EquipoFormSchema = z.object({
+    ipv4: z.string()
+        .min(1, "La IP local es obligatoria")
+        .ipv4({ message: "Debe ser una dirección IPv4 válida" }),
+    
+    ipvpn: z.union([
+        z.literal(""), 
+        z.string().ipv4({ message: "Debe ser una dirección IPv4 válida" })
+    ]).optional(),
+
+    propietario: z.string()
+        .min(1, "El nombre del propietario es obligatorio")
+        .max(100, "El nombre es demasiado largo"),
+
+    activo: z.boolean()
+});
+
+export const DeleteEquipoResponseSchema = z.object({
+    success: z.boolean(),
+    message: z.string()
+});
+
 export const UsersSchema = z.array(UserSchema)
 
 export const PortfolioResponseSchema = z.array(PortfolioItemSchema);

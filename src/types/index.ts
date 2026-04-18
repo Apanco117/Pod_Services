@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { AdminStockItemSchema, LiveConnectionItemSchema, LiveConnectionResponseSchema, LogConexionItemSchema, LogConexionResponseSchema, MarketItemSchema, MessageResponseSchema, PortfolioItemSchema, PortfolioResponseSchema, StockChangeSchema, StockDetailSchema, StockRangeValuesSchema, UserSchema } from './schemas'; 
+import { AdminStockItemSchema, DeleteEquipoResponseSchema, EquipoFormSchema, EquipoItemSchema, EquiposResponseSchema, LiveConnectionItemSchema, LiveConnectionResponseSchema, LogConexionItemSchema, LogConexionResponseSchema, MarketItemSchema, MessageResponseSchema, PortfolioItemSchema, PortfolioResponseSchema, StockChangeSchema, StockDetailSchema, StockRangeValuesSchema, UserSchema } from './schemas'; 
 
 //. Usuario
 export type User = z.infer<typeof UserSchema>;
@@ -25,6 +25,12 @@ export type LogConexion = z.infer<typeof LogConexionItemSchema>;
 export type LiveConnectionItem = z.infer<typeof LiveConnectionItemSchema>;
 export type LiveConnectionResponse = z.infer<typeof LiveConnectionResponseSchema>;
 
+//. Equipos
+export type EquipoItem = z.infer<typeof EquipoItemSchema>;
+export type EquiposResponse = z.infer<typeof EquiposResponseSchema>;
+export type EquipoResponse = z.infer<typeof EquipoFormSchema>;
+export type EquipoFormData = z.infer<typeof EquipoFormSchema>;
+export type DeleteEquipoResponse = z.infer<typeof DeleteEquipoResponseSchema>;
 export type MonitorFilters = {
     date?: string;
     event?: string;

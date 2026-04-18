@@ -15,9 +15,11 @@ export const MonitorLiveColumns: ColumnDef<LiveConnectionItem>[] = [
     },
     {
         accessorKey: "socketId",
-        header: "Socket ID",
+        header: () => (
+            <div className="hidden sm:block">Socket ID</div>
+        ),
         cell: ({ row }) => (
-            <div className="text-sm text-slate-500 dark:text-slate-400 font-mono">
+            <div className="hidden sm:block text-sm text-slate-500 dark:text-slate-400 font-mono">
                 {row.getValue("socketId")}
             </div>
         )
@@ -36,7 +38,6 @@ export const MonitorLiveColumns: ColumnDef<LiveConnectionItem>[] = [
         },
     },
     {
-        // Usamos 'id' en lugar de 'accessorKey' porque la propiedad "hora" no existe en tu Type
         id: "hora", 
         header: () => (
             <div className="text-right">Hora</div>

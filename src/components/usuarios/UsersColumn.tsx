@@ -43,7 +43,7 @@ export const UsersColumn: ColumnDef<User>[] = [
                         <span className="font-bold text-slate-900 dark:text-slate-100 text-sm">
                             {user.nombre}
                         </span>
-                        <span className="text-xs text-slate-500 dark:text-slate-400 truncate max-w-[200px]">
+                        <span className="text-xs text-slate-500 dark:text-slate-400 truncate max-w-50">
                             {user.email}
                         </span>
                     </div>
