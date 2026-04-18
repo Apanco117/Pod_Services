@@ -27,7 +27,6 @@ export const UserSchema = z.object({
     email: z.string(),
     role: z.string(),
     activo: z.boolean(),
-    confirmado: z.boolean(),
     createdAt: z.string(),
     updatedAt: z.string()
 });
