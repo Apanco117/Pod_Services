@@ -10,6 +10,7 @@ import StockView from "./views/StockView"
 import MonitorEvents from "./views/MonitorEvents"
 import MonitorLiveView from "./views/MonitorLiveView"
 import EquiposView from "./views/EquiposView"
+import NodosSitView from "./views/NodosSitView"
 
 export default function Router() {
     return (
@@ -26,6 +27,7 @@ export default function Router() {
                         <Route path="/admin/stocks" element={<AdminStocksView/>} />
                         <Route path="/monitor/events" element={<MonitorEvents/>} />
                         <Route path="/monitor/live" element={<MonitorLiveView/>} />
+                        <Route path="/sit/nodos" element={<NodosSitView/>} />
                         <Route path="/admin/equipos" element={<EquiposView/>} />
                         <Route path="/stock/:ticker" element ={<StockView/>}/>
                     </Route>

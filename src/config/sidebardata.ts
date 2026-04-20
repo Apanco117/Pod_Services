@@ -1,4 +1,4 @@
-import { ChartBar, Cuboid, FolderDot, LayoutDashboard, Settings2, User } from "lucide-react";
+import { Banknote, ChartBar, Cuboid, FolderDot, LayoutDashboard, Settings2, User } from "lucide-react";
 
 export const getNavData = (userRole: string) => {
     console.log("User Role:", userRole);
@@ -41,6 +41,18 @@ export const getNavData = (userRole: string) => {
                 {
                     title: "Equipos registrados",
                     url: "/admin/equipos",
+                }
+            ],
+        },
+        {
+            title: "SIT",
+            url: "/sit",
+            icon: Banknote,
+            isActive: true,
+            items: [
+                {
+                    title: "Nodos SIT",
+                    url: "/sit/nodos",
                 }
             ],
         },

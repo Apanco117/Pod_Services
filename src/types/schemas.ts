@@ -163,6 +163,35 @@ export const DeleteEquipoResponseSchema = z.object({
     message: z.string()
 });
 
+
+//. Nodos equipos sit
+export const JobDetailsSchema = z.object({
+    Ip: z.string().ipv4({ message: "Debe ser una dirección IPv4 válida" }),
+    Nodo: z.string(),
+    Path: z.string()
+});
+
+export const JobDataSchema = z.object({
+    jobId: z.string(),
+    status: z.string(),
+    mensaje: z.string(),
+    data: JobDetailsSchema.optional()
+});
+
+export const NodoItemSchema = z.object({
+    socketId: z.string(),
+    ip: z.string().ipv4({ message: "Debe ser una dirección IPv4 válida" }),
+    status: z.enum(["OK", "TIMEOUT"]), 
+    data: JobDataSchema.nullable(), 
+    propietario: z.string()
+});
+
+export const NodosResponseSchema = z.object({
+    success: z.boolean(),
+    total: z.number().int().nonnegative(), 
+    data: z.array(NodoItemSchema) 
+});
+
 export const UsersSchema = z.array(UserSchema)
 
 export const PortfolioResponseSchema = z.array(PortfolioItemSchema);

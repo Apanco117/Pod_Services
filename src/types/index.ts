@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { AdminStockItemSchema, DeleteEquipoResponseSchema, EquipoFormSchema, EquipoItemSchema, EquiposResponseSchema, LiveConnectionItemSchema, LiveConnectionResponseSchema, LogConexionItemSchema, LogConexionResponseSchema, MarketItemSchema, MessageResponseSchema, PortfolioItemSchema, PortfolioResponseSchema, StockChangeSchema, StockDetailSchema, StockRangeValuesSchema, UserSchema } from './schemas'; 
+import { AdminStockItemSchema, DeleteEquipoResponseSchema, EquipoFormSchema, EquipoItemSchema, EquiposResponseSchema, JobDetailsSchema, LiveConnectionItemSchema, LiveConnectionResponseSchema, LogConexionItemSchema, LogConexionResponseSchema, MarketItemSchema, MessageResponseSchema, NodoItemSchema, NodosResponseSchema, PortfolioItemSchema, PortfolioResponseSchema, StockChangeSchema, StockDetailSchema, StockRangeValuesSchema, UserSchema } from './schemas'; 
 
 //. Usuario
 export type User = z.infer<typeof UserSchema>;
@@ -31,6 +31,14 @@ export type EquiposResponse = z.infer<typeof EquiposResponseSchema>;
 export type EquipoResponse = z.infer<typeof EquipoFormSchema>;
 export type EquipoFormData = z.infer<typeof EquipoFormSchema>;
 export type DeleteEquipoResponse = z.infer<typeof DeleteEquipoResponseSchema>;
+
+
+//. Nodos Sit
+// Si necesitas los tipos de TS para tus variables:
+export type JobDetails = z.infer<typeof JobDetailsSchema>;
+export type NodoItem = z.infer<typeof NodoItemSchema>;
+export type NodosResponse = z.infer<typeof NodosResponseSchema>;
+
 export type MonitorFilters = {
     date?: string;
     event?: string;
