@@ -9,6 +9,9 @@ import {
 } from '@tanstack/react-query'
 
 import { Toaster } from 'sonner';
+import { Analytics } from '@vercel/analytics/react';
+
+
 
 const queryClient = new QueryClient()
 
@@ -30,7 +33,7 @@ createRoot(document.getElementById('root')!).render(
           pauseOnFocusLoss
           draggable
           pauseOnHover
-          theme="dark" // o 'dark' o 'colored'
+          theme="dark"
         />
         <Toaster 
             theme="dark"
@@ -40,6 +43,7 @@ createRoot(document.getElementById('root')!).render(
             expand={false}      
         />
        </QueryClientProvider>
+       <Analytics />
     </ThemeProvider>
   </StrictMode>,
 )
